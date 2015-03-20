@@ -9,21 +9,15 @@ describe "the new post process" do
       :with => 'Rivers, why uncomfortable couches exist,
       the color of dying plants, how insects communicate,
       cultural diffusion, [to be continued...]'
-    post = Post.create({
-      title: 'Things to Ponder',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued...]'})
     click_on 'Publish'
-    expect(page).to have_content post.title
+    expect(page).to have_content 'awesome'
   end
 
   it "will not publish if no title is given" do
     visit posts_path
     click_on 'Express yourself'
     fill_in 'Content', :with => 'Titles are for chumps.'
-    post = Post.create({content: "Titles are for chumps."})
     click_on 'Publish'
-    expect(page). to have_no_content post.content
+    expect(page). to have_content 'went wrong'
   end
 end

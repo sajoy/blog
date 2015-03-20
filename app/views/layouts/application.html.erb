@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="col-md-12">
+    <%= link_to 'Read, and maybe weep', posts_path %> |
+    <%= link_to 'Express yourself', new_post_path %> 
 
+  </div>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 <%= yield %>
 
 </body>
