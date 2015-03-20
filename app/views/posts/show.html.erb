@@ -4,13 +4,15 @@
   <%= link_to 'revise post', edit_post_path(@post) %>
 </p>
 
-<p>
-  <%= @post.content %>
-</p
-
+<p> <%= @post.content %> </p>
+<hr>
 <ul>
-  <lh>Comments:</lh>
-  <% @post.comments.each do |comment| %>
-    <li> <%= comment.content %> -<%= comment.name %></li>
-  <% end %>
+  <lh> <%= @comments.length %> comments:</lh>
+   <% @comments.each do |comment| %>
+    <li>
+      "<%= comment.content %>" <i>-<%= comment.name %></i>
+       <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+    </li>
+   <% end %>
 </ul>
+<p> <%= link_to 'Leave a comment', new_post_comment_path(@post) %> </p>

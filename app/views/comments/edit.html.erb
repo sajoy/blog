@@ -1,0 +1,7 @@
+<h1>Edit your comment:</h1>
+<p>
+  <%= link_to 'or just toss it in the virtual trash can',
+    post_comment_path(@post, @comment), :data => { :confirm => 'are you sure?',
+                                :method => 'delete'} %>
+</p>
+<%= render 'form' %>
