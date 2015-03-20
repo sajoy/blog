@@ -6,4 +6,11 @@
 
 <p>
   <%= @post.content %>
-</p>
+</p
+
+<ul>
+  <lh>Comments:</lh>
+  <% @post.comments.each do |comment| %>
+    <li> <%= comment.content %> -<%= comment.name %></li>
+  <% end %>
+</ul>
