@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:alert] = "So sorry, something went wrong. Try again."
-      redirect_to :back
+      render :new
     end
   end
 
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       flash[:alert] = "Yes, less is more, but saying nothing is unacceptable. Please don't leave fields empty."
-      redirect_to :back
+      render :edit
     end
   end
 
