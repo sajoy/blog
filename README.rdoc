@@ -1,28 +1,19 @@
-== README
+== Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple blog app that gives users the opportunity to share their deepest thoughts and comment on other user's posts. Created using Ruby on Rails.
 
-Things you may want to cover:
+To run this app:
+---
+  1. clone this repo
+  2. set up the database: `rake db:create` then `rake db:migrate`
+  3. start the rails server `rails server`
+  4. open localhost:3000 in your favorite browser
 
-* Ruby version
+Future features:
+---
+* user creation, authentication
+* user profile pages
+* user avatars
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+created by Sarah Joy Calpo
+MIT COPYRIGHT 2015
