@@ -1,2 +1,7 @@
 <h1>Spellcheck, grammarcheck, change up your syntax:</h1>
+<p>
+  <%= link_to 'or just toss it in the virtual trash can',
+    post_path(@post), :data => { :confirm => 'are you sure?',
+                                :method => 'delete'} %>
+</p>
 <%= render 'form' %>

@@ -43,4 +43,18 @@ describe "the edit post process" do
     expect(page).to have_content 'empty'
   end
 
+  it "will delete a post" do
+    post = Post.create({
+      title: 'Things to Ponder',
+      content: 'Rivers, why uncomfortable couches exist,
+      the color of dying plants, how insects communicate,
+      cultural diffusion, [to be continued]'})
+    visit posts_path
+    click_on post.title
+    click_on 'revise post'
+    fill_in 'Content', :with => ''
+    click_on 'or just toss it in the virtual trash can'
+    expect(page).to have_no_content post.title
+  end
+
 end
