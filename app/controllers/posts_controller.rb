@@ -22,6 +22,22 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "The most important part of writing is revision. Kudos to you."
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = "Yes, less is more, but saying nothing is unacceptable. Please don't leave fields empty."
+      redirect_to :back
+    end
+  end
+
+
 private
   def post_params
     params.require(:post).permit(:title, :content)

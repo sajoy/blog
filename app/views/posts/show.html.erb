@@ -1,4 +1,9 @@
 <h1><%= @post.title %></h1>
 <p>
+  <%= Time.at(@post.created_at).to_date %>
+  <%= link_to 'revise post', edit_post_path(@post) %>
+</p>
+
+<p>
   <%= @post.content %>
 </p>
