@@ -20,4 +20,12 @@ describe "the new post process" do
     click_on 'Publish'
     expect(page). to have_content 'went wrong'
   end
+
+  it "will not publish if no content is given" do
+    visit posts_path
+    click_on 'Express yourself'
+    fill_in 'Content', :with => 'Content is for chumps.'
+    click_on 'Publish'
+    expect(page). to have_content 'went wrong'
+  end
 end
