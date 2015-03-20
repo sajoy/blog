@@ -7,14 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="col-md-12">
-    <%= link_to 'Read, and maybe weep', posts_path %> |
-    <%= link_to 'Express yourself', new_post_path %> 
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-2 sidebar">
+        <ul>
+          <li> <%= link_to 'Read, and maybe weep', posts_path %> </li>
+          <li> <%= link_to 'Express yourself', new_post_path %> </li>
+        </ul>
+        <% if flash[:notice] || flash[:alert] %>
+          <div class="alert">
+            <%= flash[:notice] %>
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-6 content">
+        <%= yield %>
+      </div>
+    </div>
   </div>
-<%= flash[:notice] %>
-<%= flash[:alert] %>
-<%= yield %>
-
 </body>
 </html>

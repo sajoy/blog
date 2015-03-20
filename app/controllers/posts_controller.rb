@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Thanks for posting. Your thoughts are awesome. Share again soon!"
       redirect_to post_path(@post)
     else
-      flash[:alert] = "So sorry, something went wrong. Try again."
+      flash[:alert] = "You came here with something to say, so say it."
       render :new
     end
   end
@@ -41,6 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "Post deleted. It's now lost to the wilderness of tangled web."
     redirect_to posts_path
   end
 

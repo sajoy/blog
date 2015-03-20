@@ -1,10 +1,12 @@
 <% if object.errors.any? %>
-  <h3>Oops there was a big, bad error.  Please try again:</h3>
+  <div class="alert">
+    <h3>Oops there was a big, bad error.  Please try again:</h3>
 
-  <ul>
-    <% object.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+    <ol>
+      <% object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ol>
 
+  </div>
 <% end %>

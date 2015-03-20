@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     if @comment.save
-      flash[:notice] = "Thanks for commenting."
+      flash[:notice] = "Thanks for commenting. Why not write your own post?"
       redirect_to post_path(@post)
     else
-      flash[:alert] = "So sorry, something went wrong. Try again."
+      flash[:alert] = "Your thoughts are worth reading. Don't leave those fields empty."
       render :new
     end
   end
@@ -25,10 +25,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      flash[:notice] = "Your revised comment was submitted."
+      flash[:notice] = "The best revisions add smiley faces."
       redirect_to post_path(@post)
     else
-      flash[:alert] = "Something went wrong. Please try again."
+      flash[:alert] = "Your thoughts are worth sharing. Don't leave those fields empty."
       render :edit
     end
   end
@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:notice] = "Comment deleted. It's now lost to the wilderness of tangled web."
     redirect_to post_path(@post)
   end
 

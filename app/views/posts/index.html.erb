@@ -1,5 +1,5 @@
+<h1> All the thoughts in the world: </h1>
 <ul>
-  <lh> All the thoughts in the world: </lh>
   <% @posts.each do |post| %>
     <li><%= link_to post.title, post_path(post) %></li>
   <% end %>

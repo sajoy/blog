@@ -1,2 +1,2 @@
-<h1>Add your thoughts on '<%= @post.title %>':</h1>
+<h1>Add your thoughts on '<%= link_to @post.title, post_path(@post) %>':</h1>
 <%= render 'form' %>

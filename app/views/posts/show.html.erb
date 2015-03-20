@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 <p>
-  <%= Time.at(@post.created_at).to_date %>
+  <%= Time.at(@post.created_at).to_date %> </br>
   <%= link_to 'revise post', edit_post_path(@post) %>
 </p>
 

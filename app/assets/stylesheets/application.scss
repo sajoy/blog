@@ -1,0 +1,52 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  margin: 100px auto;
+}
+
+a:link {color: #666666}
+a:hover {color: #666666}
+a:visited {color: #666666}
+a:active {color: #666666}
+
+li {
+  list-style: circle;
+}
+
+.sidebar {
+  border-right: dotted 1px #ccc;
+  height: 600px;
+}
+
+.alert{
+  background-color: #f39;
+  padding: 10px;
+  color: white;
+
+  h3 {
+    margin-top: 10px;
+  }
+  
+  ol {
+    margin-left: 40px;
+  }
+
+}
+
+.content {
+  margin-left: 50px;
+
+  h1 {
+    margin-top: 0;
+    margin-left: -20px;
+  }
+
+  lh {
+    font-style: italic;
+    margin-left: -20px;
+  }
+  ul {
+    padding-left: 0;
+    }
+}
