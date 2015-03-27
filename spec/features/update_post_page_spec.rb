@@ -2,11 +2,10 @@ require 'rails_helper'
 
 describe "the edit post process" do
   it "updates a new post" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'revise post'
@@ -16,11 +15,10 @@ describe "the edit post process" do
   end
 
   it "will not accept an empty title" do
-    post = Post.create({
-      title: 'Things to Ponder',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'revise post'
@@ -30,11 +28,10 @@ describe "the edit post process" do
   end
 
   it "will not accept empty content" do
-    post = Post.create({
-      title: 'Things to Ponder',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'revise post'
@@ -44,11 +41,10 @@ describe "the edit post process" do
   end
 
   it "will delete a post" do
-    post = Post.create({
-      title: 'Things to Ponder',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'revise post'

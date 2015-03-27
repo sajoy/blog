@@ -2,11 +2,10 @@ require 'rails_helper'
 
 describe "the new comment process" do
   it "creates a new comment" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'Leave a comment'
@@ -17,11 +16,10 @@ describe "the new comment process" do
   end
 
   it "will not post if the name is empty" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'Leave a comment'
@@ -31,11 +29,10 @@ describe "the new comment process" do
   end
 
   it "will not post if the content is empty" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     visit posts_path
     click_on post.title
     click_on 'Leave a comment'

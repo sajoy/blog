@@ -2,11 +2,10 @@ require 'rails_helper'
 
 describe "the edit post process" do
   it "updates a comment" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     comment = Comment.create({
       name: "Jane",
       content: "LOL.",
@@ -20,11 +19,10 @@ describe "the edit post process" do
   end
 
   it "will not update if name is empty" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     comment = Comment.create({
       name: "Jane",
       content: "LOL.",
@@ -38,11 +36,10 @@ describe "the edit post process" do
   end
 
   it "will not update if content is empty" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     comment = Comment.create({
       name: "Jane",
       content: "LOL.",
@@ -56,11 +53,10 @@ describe "the edit post process" do
   end
 
   it "will delete the comment" do
-    post = Post.create({
-      title: 'Things to Pond',
-      content: 'Rivers, why uncomfortable couches exist,
-      the color of dying plants, how insects communicate,
-      cultural diffusion, [to be continued]'})
+    user = FactoryGirl.create(:user)
+    login(user)
+    post = FactoryGirl.create(:post)
+    user.posts.push(post)
     comment = Comment.create({
       name: "Jane",
       content: "LOL.",

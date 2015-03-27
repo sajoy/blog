@@ -1,10 +1,15 @@
 <h1><%= @post.title %></h1>
 <p>
-  <%= Time.at(@post.created_at).to_date %> </br>
-  <%= link_to 'revise post', edit_post_path(@post) %>
+  <%= Time.at(@post.created_at).to_date %>
+  <% if current_user == @post.user %>
+    | <%= link_to 'revise post', edit_post_path(@post) %>
+  <% end %>
 </p>
 
 <p> <%= @post.content %> </p>
+<h5>
+  - <%= @post.user.name %>
+</h5>
 <hr>
 <ul>
   <lh> <%= @comments.length %> comments:</lh>
@@ -15,4 +20,6 @@
     </li>
    <% end %>
 </ul>
-<p> <%= link_to 'Leave a comment', new_post_comment_path(@post) %> </p>
+<% if current_user %>
+  <p> <%= link_to 'Leave a comment', new_post_comment_path(@post) %> </p>
+<% end %>

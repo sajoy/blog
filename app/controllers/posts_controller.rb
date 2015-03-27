@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    @post.user = current_user
     if @post.save
       flash[:notice] = "Thanks for posting. Your thoughts are awesome. Share again soon!"
       redirect_to post_path(@post)
