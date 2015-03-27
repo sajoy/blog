@@ -31,7 +31,7 @@ describe 'the sign in process' do
     click_link "Log In"
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_on "Sign In"
+    click_button "Log In"
     expect(page).to have_content user.email
   end
 
@@ -40,7 +40,22 @@ describe 'the sign in process' do
     click_link "Log In"
     fill_in 'Email', with: 'saj@lol.com'
     fill_in 'Password', with: 'password'
-    click_on "Sign In"
+    click_button "Log In"
     expect(page).to have_content ''
   end
+end
+
+describe 'the sign out process' do
+  it 'will sign out a user' do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_link "Log In"
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button "Log In"
+    click_on user.email
+    click_on 'Log Out'
+    expect(page).to have_content 'Signed out'
+  end
+
 end
