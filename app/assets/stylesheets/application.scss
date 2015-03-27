@@ -14,8 +14,6 @@
  *= require_self
  */
 
-
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -28,13 +26,20 @@ a:hover {color: #666666}
 a:visited {color: #666666}
 a:active {color: #666666}
 
-li {
-  list-style: circle;
+.content {
+  li {
+    list-style: circle;
+  }
 }
 
 .sidebar {
   border-right: dotted 1px #ccc;
   height: 600px;
+}
+
+.navbar-default {
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .alert{

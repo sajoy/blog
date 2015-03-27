@@ -8,7 +8,30 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <%= current_user.email %> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"> My Posts </a></li>
+                  <li><a href="#"> My Replies </a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"> Edit Account </a></li>
+                  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to 'Sign Up', new_user_registration_path %> </li>
+              <li><%= link_to 'Log In', new_user_session_path %></li>
+          <% end %>
+
+
+        </ul>
+      </div>
+    </nav>
+    <div class="row content">
       <div class="col-xs-2 sidebar">
         <ul>
           <li> <%= link_to 'Read, and maybe weep', posts_path %> </li>
