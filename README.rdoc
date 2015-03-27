@@ -1,18 +1,20 @@
 == Blog
 
-A simple blog app that gives users the opportunity to share their deepest thoughts and comment on other user's posts. Created using Ruby on Rails.
+Found online at https://gentle-wildwood-8578.herokuapp.com/
+
+A simple blog app that gives users the opportunity to share their deepest thoughts and comment on other user's posts. Created using Ruby on Rails, with Devise for user authentication.
 
 To run this app:
 ---
   1. clone this repo
-  2. set up the database: `rake db:create` then `rake db:migrate`
+  2. set up the database: `rake db:create db:migrate db:seed`
   3. start the rails server `rails server`
   4. open localhost:3000 in your favorite browser
 
 Future features:
 ---
-* user creation, authentication
-* user profile pages
+* tagging posts
+* more user information, ie bio
 * user avatars
 
 created by Sarah Joy Calpo
