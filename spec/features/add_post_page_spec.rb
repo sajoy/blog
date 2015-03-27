@@ -18,7 +18,7 @@ describe "the new post process" do
     click_on 'Express yourself'
     fill_in 'Content', :with => 'Titles are for chumps.'
     click_on 'Publish'
-    expect(page). to have_content 'went wrong'
+    expect(page). to have_content 'big, bad error'
   end
 
   it "will not publish if no content is given" do
@@ -26,6 +26,6 @@ describe "the new post process" do
     click_on 'Express yourself'
     fill_in 'Content', :with => 'Content is for chumps.'
     click_on 'Publish'
-    expect(page). to have_content 'went wrong'
+    expect(page). to have_content 'big, bad error'
   end
 end

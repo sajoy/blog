@@ -16,7 +16,7 @@ describe "the edit post process" do
     click_on 'edit'
     fill_in 'Content', :with => 'LMAO!!!'
     click_on 'Comment'
-    expect(page).to have_content 'revised'
+    expect(page).to have_content 'revision'
   end
 
   it "will not update if name is empty" do
