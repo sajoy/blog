@@ -15,8 +15,10 @@
   <lh> <%= @comments.length %> comments:</lh>
    <% @comments.each do |comment| %>
     <li>
-      "<%= comment.content %>" <i>-<%= comment.name %></i>
-       <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+      "<%= comment.content %>" <i>-<%= comment.user.name %></i>
+      <% if comment.user == current_user %>
+         <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+       <% end %>
     </li>
    <% end %>
 </ul>
