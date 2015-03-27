@@ -1,6 +1,6 @@
 <h1> All the thoughts in the world: </h1>
 <ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
+  <% @posts.reverse.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %> <span class="gray">~ written by <%= link_to post.user.name, user_path(post.user), class: 'gray' %></span></li>
   <% end %>
 </ul>

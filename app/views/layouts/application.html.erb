@@ -43,8 +43,7 @@
           <li> <%= link_to 'Read, and maybe weep', posts_path %> </li>
           <% if current_user %>
             <li> <%= link_to 'Express yourself', new_post_path %> </li>
-            <li><a href="#"> Revisit your thoughts </a></li>
-            <li><a href="#"> Comments you've left</a></li>
+            <li><a href="#"><%= link_to 'Revisit your thoughts', user_path(current_user) %> </a></li>
           <% else %>
             <li><%= link_to 'Create an account', new_user_registration_path %> </li>
             <li><%= link_to 'Sign in and start writing', new_user_session_path %></li>

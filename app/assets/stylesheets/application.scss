@@ -31,17 +31,16 @@ blockquote {
   color: #D3D3D3;
 }
 
-.content {
-  li {
-    list-style: circle;
+.gray {
+  color: #D3D3D3;
+  a:link {color: #D3D3D3;}
+  a:hover {color: #D3D3D3;}
+  a:visited {color: #D3D3D3;}
+  a:active {color: #D3D3D3;}
+
   }
 
-  h5 {
-    text-align: right;
-    color: #666666;
-    font-style: italic;
-  }
-}
+
 
 .sidebar {
   border-right: dotted 1px #ccc;
@@ -80,7 +79,23 @@ blockquote {
     font-style: italic;
     margin-left: -20px;
   }
+
   ul {
     padding-left: 0;
     }
+
+  li {
+    list-style: circle;
+  }
+
+  h3 {
+    margin-left: -20px;
+  }
+
+  h5 {
+    text-align: right;
+    color: #D3D3D3;
+    font-style: italic;
+  }
+
 }

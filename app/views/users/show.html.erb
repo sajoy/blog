@@ -1,0 +1,21 @@
+<h1><%= @user.name %>'s words</h1>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Posts</h3>
+    <ul>
+      <% @user.posts.reverse.each do |post| %>
+        <li><%= link_to post.title, post_path(post) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h3>Comments</h3>
+    <ul>
+      <% @user.comments.reverse.each do |comment| %>
+        <li>commented on: <%= link_to comment.post.title, post_path(comment.post) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 <p>
-  <%= Time.at(@post.created_at).to_date %>
+  <span class='gray'><%= Time.at(@post.created_at).to_date %></span>
   <% if current_user == @post.user %>
     | <%= link_to 'revise post', edit_post_path(@post) %>
   <% end %>
@@ -8,11 +8,11 @@
 
 <p> <%= @post.content %> </p>
 <h5>
-  - <%= @post.user.name %>
+  - <%= link_to @post.user.name, user_path(@post.user), class: 'gray' %>
 </h5>
 <hr>
 <ul>
-  <lh> <%= @comments.length %> comments:</lh>
+  <lh> <%= @comments.length %> comments</lh>
    <% @comments.each do |comment| %>
     <li>
       "<%= comment.content %>" <i>-<%= comment.user.name %></i>
