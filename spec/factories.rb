@@ -13,11 +13,5 @@ FactoryGirl.define do
     cultural diffusion, [to be continued]')
   end
 
-  factory(:comment) do
-    email('saj@calpo.com')
-    password('password')
-  end
-
-
 
 end

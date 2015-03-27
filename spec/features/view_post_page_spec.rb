@@ -17,9 +17,9 @@ describe "the post viewing process" do
     post = FactoryGirl.create(:post)
     user.posts.push(post)
     comment = Comment.create({
-      name: "Jane",
       content: "LOL.",
-      post_id: post.id})
+      post_id: post.id,
+      user_id: user.id})
     visit posts_path
     click_on post.title
     expect(page).to have_content comment.content

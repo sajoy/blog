@@ -7,9 +7,9 @@ describe "the edit post process" do
     post = FactoryGirl.create(:post)
     user.posts.push(post)
     comment = Comment.create({
-      name: "Jane",
       content: "LOL.",
-      post_id: post.id})
+      post_id: post.id,
+      user_id: user.id})
     visit posts_path
     click_on post.title
     click_on 'edit'
@@ -18,32 +18,15 @@ describe "the edit post process" do
     expect(page).to have_content 'revision'
   end
 
-  it "will not update if name is empty" do
-    user = FactoryGirl.create(:user)
-    login(user)
-    post = FactoryGirl.create(:post)
-    user.posts.push(post)
-    comment = Comment.create({
-      name: "Jane",
-      content: "LOL.",
-      post_id: post.id})
-    visit posts_path
-    click_on post.title
-    click_on 'edit'
-    fill_in 'Name', :with => ''
-    click_on 'Comment'
-    expect(page).to have_content 'blank'
-  end
-
   it "will not update if content is empty" do
     user = FactoryGirl.create(:user)
     login(user)
     post = FactoryGirl.create(:post)
     user.posts.push(post)
     comment = Comment.create({
-      name: "Jane",
       content: "LOL.",
-      post_id: post.id})
+      post_id: post.id,
+      user_id: user.id})
     visit posts_path
     click_on post.title
     click_on 'edit'
@@ -58,9 +41,9 @@ describe "the edit post process" do
     post = FactoryGirl.create(:post)
     user.posts.push(post)
     comment = Comment.create({
-      name: "Jane",
       content: "LOL.",
-      post_id: post.id})
+      post_id: post.id,
+      user_id: user.id})
     visit posts_path
     click_on post.title
     click_on 'edit'
