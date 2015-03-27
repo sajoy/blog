@@ -6,6 +6,7 @@ describe 'the sign up process' do
     visit root_path
     click_link "Create an account"
     fill_in 'Email', with: '100wpm@gmail.com'
+    fill_in 'Name', with: 'Sarah J'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_on 'Create Account'
@@ -32,7 +33,7 @@ describe 'the sign in process' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button "Log In"
-    expect(page).to have_content user.email
+    expect(page).to have_content user.name
   end
 
   it 'will not sign in an unregistered user' do
@@ -53,7 +54,7 @@ describe 'the sign out process' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button "Log In"
-    click_on user.email
+    click_on user.name
     click_on 'Log Out'
     expect(page).to have_content 'Signed out'
   end
