@@ -15,7 +15,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <%= current_user.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#"> <%= link_to 'Edit Account', edit_user_registration_path  %></a></li>
+                <% if current_user.id != 1 %>
+                  <li><a href="#"> <%= link_to 'Edit Account', edit_user_registration_path  %></a></li>
+                <% end %>
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
@@ -40,6 +42,7 @@
         </blockquote>
 
         <ul>
+          <li><%= link_to 'The writers', users_path %></li>
           <li> <%= link_to 'Read, and maybe weep', posts_path %> </li>
           <% if current_user %>
             <li> <%= link_to 'Express yourself', new_post_path %> </li>
