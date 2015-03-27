@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "the new post process" do
   it "creates a new post" do
-    visit posts_path
+    user = FactoryGirl.create(:user)
+    login(user)
     click_on 'Express yourself'
     fill_in 'Title', :with => 'Things to Ponder'
     fill_in 'Content',
@@ -14,7 +15,8 @@ describe "the new post process" do
   end
 
   it "will not publish if no title is given" do
-    visit posts_path
+    user = FactoryGirl.create(:user)
+    login(user)
     click_on 'Express yourself'
     fill_in 'Content', :with => 'Titles are for chumps.'
     click_on 'Publish'
@@ -22,7 +24,8 @@ describe "the new post process" do
   end
 
   it "will not publish if no content is given" do
-    visit posts_path
+    user = FactoryGirl.create(:user)
+    login(user)
     click_on 'Express yourself'
     fill_in 'Content', :with => 'Content is for chumps.'
     click_on 'Publish'
