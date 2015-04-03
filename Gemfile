@@ -28,8 +28,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'poltergeist'
-  # gem 'vcr'
-  # gem 'webmock'
+  gem 'vcr'
+  gem 'webmock'
   gem 'database_cleaner'
 end
 
