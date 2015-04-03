@@ -20,9 +20,8 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:alert] = "Your thoughts are worth reading. Don't leave those fields empty."
-          render :new
         end
-        # format.js
+        render :new
       end
     end
   end
