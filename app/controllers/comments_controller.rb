@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
-    # binding.pry
     if @comment.save
       respond_to do |format|
         format.html do
@@ -36,11 +35,20 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      flash[:notice] = "The best revisions add smiley faces."
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "The best revisions add smiley faces."
+          redirect_to post_path(@post)
+        end
+        format.js
+      end
     else
-      flash[:alert] = "Your thoughts are worth sharing. Don't leave those fields empty."
-      render :edit
+      respond_to do |format|
+        format.html do
+          flash[:alert] = "Your thoughts are worth sharing. Don't leave those fields empty."
+        end
+        render :edit
+      end
     end
   end
 
@@ -54,6 +62,6 @@ class CommentsController < ApplicationController
 
 private
   def comment_params
-    params.require(:comment).permit(:content, :post)
+    params.require(:comment).permit(:content)
   end
 end

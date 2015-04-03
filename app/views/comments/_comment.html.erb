@@ -1,6 +1,9 @@
-<li>
+<li id="comment_<%= comment.id %>">
   "<%= comment.content %>" <i>-<%= comment.user.name %></i>
   <% if comment.user == current_user %>
-     <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+     <%= link_to 'edit', edit_post_comment_path(@post, comment), remote: true %> /
+     <%= link_to 'delete',
+       post_comment_path(@post, comment), :data => { :confirm => 'are you sure?',
+                                                      :method => 'delete'} %>
    <% end %>
 </li>

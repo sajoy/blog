@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
 
-  before_save :send_sms
+  after_create :send_sms
 
   def send_sms
     if self.post.user.phone != nil
