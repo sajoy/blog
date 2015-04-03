@@ -3,7 +3,6 @@
   <% if comment.user == current_user %>
      <%= link_to 'edit', edit_post_comment_path(@post, comment), remote: true %> /
      <%= link_to 'delete',
-       post_comment_path(@post, comment), :data => { :confirm => 'are you sure?',
-                                                      :method => 'delete'} %>
+       post_comment_path(@post, comment), :data => { :method => 'delete'} %>
    <% end %>
 </li>

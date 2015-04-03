@@ -2,7 +2,7 @@
 
 Found online at https://gentle-wildwood-8578.herokuapp.com/
 
-A simple blog app that gives users the opportunity to share their deepest thoughts and comment on other user's posts. Created using Ruby on Rails, with Devise for user authentication.
+A simple blog app that gives users the opportunity to share their deepest thoughts and comment on other user's posts. Created using Ruby on Rails, with Devise for user authentication, and the Rest Client gem to send text alerts using Twilio's API.
 
 To run this app:
 ---
