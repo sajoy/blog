@@ -9,11 +9,21 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:notice] = "Thanks for commenting. Why not write your own post?"
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Thanks for commenting. Why not write your own post?"
+          redirect_to post_path(@post)
+        end
+        format.js
+      end
     else
-      flash[:alert] = "Your thoughts are worth reading. Don't leave those fields empty."
-      render :new
+      respond_to do |format|
+        format.html do
+          flash[:alert] = "Your thoughts are worth reading. Don't leave those fields empty."
+          render :new
+        end
+        # format.js
+      end
     end
   end
 

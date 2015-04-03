@@ -11,17 +11,12 @@
   - <%= link_to @post.user.name, user_path(@post.user), class: 'gray' %>
 </h5>
 <hr>
-<ul>
-  <lh> <%= @comments.length %> comments</lh>
-   <% @comments.each do |comment| %>
-    <li>
-      "<%= comment.content %>" <i>-<%= comment.user.name %></i>
-      <% if comment.user == current_user %>
-         <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
-       <% end %>
-    </li>
-   <% end %>
-</ul>
-<% if current_user %>
-  <p> <%= link_to 'Leave a comment', new_post_comment_path(@post) %> </p>
-<% end %>
+<div class="comments">
+  <ul class="comment_list">
+     <lh> <%= @comments.length %> comments</lh>
+     <%= render @comments %>
+  </ul>
+  <% if current_user %>
+    <p> <%= link_to 'Leave a comment', new_post_comment_path(@post), remote: true, id: "comment_btn" %> </p>
+  <% end %>
+</div>
