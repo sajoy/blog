@@ -13,7 +13,7 @@
 <hr>
 <div class="comments">
   <ul class="comment_list">
-     <lh> <%= @comments.length %> comments</lh>
+     <lh class="count"> <%= @comments.length %> comments</lh>
      <%= render @comments %>
   </ul>
   <% if current_user %>

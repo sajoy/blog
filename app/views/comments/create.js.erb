@@ -1,3 +1,4 @@
 $('.comment_form_div').remove();
+$('.count').text('<%= @post.comments.length %> comments');
 $('.comment_list').append('<%= j render @comment %>');
 $('#comment_btn').show();
